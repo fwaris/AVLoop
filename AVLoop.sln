@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AVLoop", "AVLoop\AVLoop.fsproj", "{B1E1D416-79E5-4A5A-A6D1-05B7FA3E3C5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B86D48C0-38A6-462E-9E2D-9ED3F6575B66}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B1E1D416-79E5-4A5A-A6D1-05B7FA3E3C5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E1D416-79E5-4A5A-A6D1-05B7FA3E3C5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E1D416-79E5-4A5A-A6D1-05B7FA3E3C5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E1D416-79E5-4A5A-A6D1-05B7FA3E3C5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C6730CA6-4367-497D-9E6A-6AEE289FF41A}
+	EndGlobalSection
+EndGlobal

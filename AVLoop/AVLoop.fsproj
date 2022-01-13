@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Description>Supports the creation of Avalonia windows in F# interactive.
+
+The code in this package is used by an accompanying script that starts the EventLoop in F# Interactive.
+</Description>
+    <PackageProjectUrl>http://github.com/fwaris/AVLoop</PackageProjectUrl>
+    <Version>1.1.9</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="AVLoop.fs" />
+    <None Include="eventloop.fsx" />
+    <None Include="testinteractive.fsx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="0.*" />
+  </ItemGroup>
+
+</Project>
