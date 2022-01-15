@@ -1,20 +1,20 @@
 ﻿
-//#i @"nuget: C:\Users\Faisa\source\repos\AVLoop\AVLoop\bin\Debug"
+//#i @"nuget: C:\Users\fwaris\Source\Repos\AVLoop\AVLoop\bin\Debug"
 #r "nuget: AVLoop"
 
 open FSharp.Compiler.Interactive
 open AVLoop
 
-let install() =
+let install(theme) =
         fsi.EventLoop <- {new IEventLoop with 
                                 member x.Run() = 
-                                    createApp [||]
+                                    createApp(theme, [||])
                                     false //dummy
                                 member x.Invoke(f) = disp f
                                 member x.ScheduleRestart() = () //dummy
                         }
 
-install() //wait till initialization message before submitting more code
+install(Default,Dark) //wait till initialization message before submitting more code
 
 (*
 //Test. 

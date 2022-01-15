@@ -1,5 +1,5 @@
 ﻿#load @"eventloop.fsx" // run this first separately
-#r "nuget: JaggerJo.Avalonia.FuncUI.DSL, Version=0.5.0-beta"
+#r "nuget: JaggerJo.Avalonia.FuncUI.DSL, Version=0.5.0-beta"     //using preview versions 
 #r "nuget: JaggerJo.Avalonia.FuncUI.Elmish, Version=0.5.0-beta"
 open Elmish
 open Avalonia.FuncUI.Elmish
