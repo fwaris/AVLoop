@@ -8,12 +8,17 @@
 The code in this package is used by an accompanying script that starts the EventLoop in F# Interactive.
 </Description>
     <PackageProjectUrl>http://github.com/fwaris/AVLoop</PackageProjectUrl>
-    <Version>1.3.0</Version>
+    <Version>1.4.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="AVLoop.fs" />
+    <None Include="..\readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="eventloop.fsx" />
     <None Include="funcui_interactive.fsx" />
     <None Include="datagrid_interactive.fsx" />
