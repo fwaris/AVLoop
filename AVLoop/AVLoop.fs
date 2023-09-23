@@ -2,9 +2,9 @@
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.Threading
+open Avalonia.Styling
 open Avalonia.Markup.Xaml.Styling
 open System
-open System.Threading
 
 type Theme = Fluent | Default
 type Mode = Light | Dark
@@ -14,49 +14,34 @@ let mutable private theme = (Default,Dark)
 let private appCreated = ref false
 let reset() = appCreated.Value <- false
 
-let accentsDark() : Styling.IStyle seq =
-    [
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/AccentColors.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/BaseDark.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Default/Accents/BaseDark.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml"))
-    ]
-
-let accentsLight() : Styling.IStyle seq =
-    [
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/AccentColors.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/Base.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Fluent/Accents/BaseLight.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Default/Accents/BaseLight.xaml"))
-        StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Themes.Default/DefaultTheme.xaml"))
-    ]
+type Styles with
+    member this.Load (source: string) = 
+        let style = StyleInclude(baseUri = null)
+        style.Source <- Uri(source)
+        this.Add(style)
     
 let loadFluent (app:Application) mode =
-    let theme = new Themes.Fluent.FluentTheme(baseUri=null)
-    theme.Mode <- match mode with Dark -> Themes.Fluent.FluentThemeMode.Dark | Light -> Themes.Fluent.FluentThemeMode.Light
-    let dgTheme = StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"))        
-    app.Styles.AddRange (match mode with Dark -> accentsDark() | Light -> accentsLight())
-    app.Styles.Add(dgTheme)
+    let theme = new Themes.Fluent.FluentTheme()
+    app.RequestedThemeVariant <- match mode with Dark -> ThemeVariant.Dark | _ -> ThemeVariant.Light
     app.Styles.Add(theme)
+    app.Styles.Load "avares://Avalonia.Controls.DataGrid/Themes/Fluent.xaml"
 
 let loadDefault (app:Application) mode =
-    let theme = new Themes.Default.DefaultTheme()  
-    let dgTheme = StyleInclude(baseUri=null, Source=Uri("avares://Avalonia.Controls.DataGrid/Themes/Default.xaml"))        
-    app.Styles.AddRange (match mode with Dark -> accentsDark() | Light -> accentsLight())
-    app.Styles.Add(dgTheme)
+    let theme = new Themes.Simple.SimpleTheme()
+    app.RequestedThemeVariant <- match mode with Dark -> ThemeVariant.Dark | _ -> ThemeVariant.Light
     app.Styles.Add(theme)
+    app.Styles.Load "avares://Avalonia.Controls.DataGrid/Themes/Simple.xaml"
+
 
 type App() =
     inherit Application()
-    override this.Initialize() =
-        ///loadFluent this FluentThemeMode.Dark
+    override this.Initialize() =        
         match theme with
         | Default, Dark  -> loadDefault this Dark
         | Default, Light -> loadDefault this Light
         | Fluent, Dark   -> loadFluent this Dark
         | Fluent, Light  -> loadFluent this Light
-       
+    
     override x.OnFrameworkInitializationCompleted() =
         match x.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime ->            
@@ -78,7 +63,7 @@ let createApp(inputTheme, args) =
         printfn "avalonia already initialized or an error occurred in the previous attempt"
 
 let disp (f:unit -> 'a) = 
-    Dispatcher.UIThread.InvokeAsync(f) 
+    Dispatcher.UIThread.InvokeAsync(f).GetTask()
     |> Async.AwaitTask 
     |> Async.RunSynchronously 
 

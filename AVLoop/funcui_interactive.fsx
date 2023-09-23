@@ -1,12 +1,12 @@
 ﻿#load @"eventloop.fsx" // run this first separately
-#r "nuget: JaggerJo.Avalonia.FuncUI.DSL, Version=0.5.0-beta"     //using preview versions 
-#r "nuget: JaggerJo.Avalonia.FuncUI.Elmish, Version=0.5.0-beta"
+#r "nuget: Avalonia.FuncUI.Elmish, 1.0.1"
 open Elmish
-open Avalonia.FuncUI.Elmish
 open Avalonia.Controls
 open Avalonia.Layout
-open Avalonia.FuncUI.Components.Hosts
+open Avalonia.FuncUI
 open Avalonia.FuncUI.DSL
+open Avalonia.FuncUI.Hosts
+open Avalonia.FuncUI.Elmish
 
 module Counter =
     
@@ -58,6 +58,6 @@ type MainWindow() as this =
         |> Program.withHost this
         |> Program.run
 
-
 let win = MainWindow()
 win.Show()
+

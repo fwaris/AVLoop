@@ -11,7 +11,7 @@ type W<'t>(data:'t seq) as this =
         this.Height <- 600.0
         this.Width <- 800.0
         dg.AutoGenerateColumns <- true
-        dg.Items <- data
+        dg.ItemsSource <- data
         this.Content <- dg
 
 let inline showData data =
