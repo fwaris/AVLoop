@@ -8,9 +8,10 @@
 The code in this package is used by an accompanying script that starts the EventLoop in F# Interactive.
 </Description>
     <PackageProjectUrl>http://github.com/fwaris/AVLoop</PackageProjectUrl>
-    <Version>1.4.9</Version>
+    <Version>1.5.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
+	  <PackageReleaseNotes>Rev to Avalonia 11</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
