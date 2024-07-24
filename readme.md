@@ -2,7 +2,7 @@
 A little bit of infractructure required to support Avalonia windows in F# interactive, 
 courtesy of the discussion in [this issue](https://github.com/fsprojects/Avalonia.FuncUI/issues/147).
 
-Run the following script code before creating Avalonia windows.
+Run the following script code *before* creating Avalonia windows.
 
 ```F#
 #r "nuget: AVLoop"

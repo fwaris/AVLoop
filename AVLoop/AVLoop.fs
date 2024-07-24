@@ -57,7 +57,7 @@ let createApp(inputTheme, args) =
         AppBuilder
             .Configure<App>()
             .UsePlatformDetect()
-            .UseSkia()
+//            .UseSkia()
             .StartWithClassicDesktopLifetime(args) |> ignore
     else
         printfn "avalonia already initialized or an error occurred in the previous attempt"

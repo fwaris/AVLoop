@@ -1,5 +1,5 @@
 ﻿
-//#i @"nuget: C:\Users\Faisa\source\repos\AVLoop\AVLoop\bin\Debug\net7.0"
+//#i @"nuget: C:\Users\Faisa\source\repos\AVLoop\AVLoop\bin\Debug\net8.0"
 #r "nuget: AVLoop"
 
 open FSharp.Compiler.Interactive
