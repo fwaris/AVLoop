@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net9.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Description>Supports the creation of Avalonia windows in F# interactive.
 
 The code in this package is used by an accompanying script that starts the EventLoop in F# Interactive.
 </Description>
     <PackageProjectUrl>http://github.com/fwaris/AVLoop</PackageProjectUrl>
-    <Version>1.6.1</Version>
+    <Version>1.6.4</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>readme.md</PackageReadmeFile>
-	  <PackageReleaseNotes>Rev to Avalonia 11</PackageReleaseNotes>
+	  <PackageReleaseNotes>F12 launches diagnostics tools; rev to latest package; net9; scottplot example</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -26,10 +26,11 @@ The code in this package is used by an accompanying script that starts the Event
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.1.0" />
-    <PackageReference Include="Avalonia.Desktop" Version="11.1.0" />
-    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.1.0" />
-    <PackageReference Include="Avalonia.Themes.Simple" Version="11.1.0" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Diagnostics" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.7" />
+    <PackageReference Include="Avalonia.Themes.Simple" Version="11.3.7" />
   </ItemGroup>
 
 </Project>

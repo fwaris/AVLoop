@@ -1,5 +1,5 @@
 ﻿#load @"eventloop.fsx" // run this first separately
-#r "nuget: Avalonia.FuncUI.Elmish, 1.0.1"
+#r "nuget: Avalonia.FuncUI.Elmish"
 open Elmish
 open Avalonia.Controls
 open Avalonia.Layout

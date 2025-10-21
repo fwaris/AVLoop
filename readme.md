@@ -43,3 +43,5 @@ win1.Content <- btn1
 win1.Show()
 
 ```
+
+Note: F# interactive in VS Code works but in Visual Studio there is some issue (currently). In VS it seems the event loop code is submitted multiple times internally when the user only submits once. Maybe that will get fixed in the future (now = 2025-10-21).

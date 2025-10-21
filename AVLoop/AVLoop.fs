@@ -1,10 +1,12 @@
 ﻿module AVLoop
+open System
 open Avalonia
 open Avalonia.Controls.ApplicationLifetimes
 open Avalonia.Threading
 open Avalonia.Styling
 open Avalonia.Markup.Xaml.Styling
-open System
+open Avalonia.Diagnostics
+open Avalonia.Input
 
 type Theme = Fluent | Default
 type Mode = Light | Dark
@@ -43,6 +45,7 @@ type App() =
         | Fluent, Light  -> loadFluent this Light
     
     override x.OnFrameworkInitializationCompleted() =
+        x.AttachDevTools(Diagnostics.DevToolsOptions(Gesture=KeyGesture(Key.F12)))
         match x.ApplicationLifetime with
         | :? IClassicDesktopStyleApplicationLifetime as desktopLifetime ->            
             desktopLifetime.ShutdownMode <- Controls.ShutdownMode.OnExplicitShutdown
@@ -57,7 +60,7 @@ let createApp(inputTheme, args) =
         AppBuilder
             .Configure<App>()
             .UsePlatformDetect()
-//            .UseSkia()
+            .UseSkia()
             .StartWithClassicDesktopLifetime(args) |> ignore
     else
         printfn "avalonia already initialized or an error occurred in the previous attempt"
